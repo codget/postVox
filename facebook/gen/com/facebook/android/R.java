@@ -11,7 +11,21 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
+        public static int black=0x7f020004;
         public static int close=0x7f020000;
         public static int facebook_icon=0x7f020001;
+        public static int icon=0x7f020002;
+        public static int white=0x7f020003;
+    }
+    public static final class layout {
+        public static int main=0x7f030000;
+    }
+    public static final class string {
+        public static int app_name=0x7f040000;
+        public static int delete=0x7f040005;
+        public static int hello=0x7f040002;
+        public static int post=0x7f040004;
+        public static int request=0x7f040001;
+        public static int upload=0x7f040003;
     }
 }
