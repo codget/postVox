@@ -16,6 +16,8 @@ public class Speech{
 	public Speech(){
 		intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 		intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);		
+		intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "pt-BR");
+		intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1);
 	}
 
 	public String setResult(int _requestCode, int resultCode, int resultOk,  Intent intent){

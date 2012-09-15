@@ -62,17 +62,27 @@ public class FB extends Facebook{
     }
 
 	class LoginDialogListener implements DialogListener{
-		@Override
-		public void onComplete(Bundle values) {}
 
-		@Override
-		public void onFacebookError(FacebookError e) {}
+		public void onComplete(Bundle values) {
+			// TODO Auto-generated method stub
+			
+		}
 
-		@Override
-		public void onError(DialogError e) {}
+		public void onFacebookError(FacebookError e) {
+			// TODO Auto-generated method stub
+			
+		}
 
-		@Override
-		public void onCancel() {}
+		public void onError(DialogError e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onCancel() {
+			// TODO Auto-generated method stub
+			
+		}
+
 	}
 
     //salva as credenciais
