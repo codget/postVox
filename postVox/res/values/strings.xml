@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">PostVox</string>
+    <string name="speechButton">Aperte e grave o que deseja postar</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_post">PostActivity</string>
+
+</resources>
