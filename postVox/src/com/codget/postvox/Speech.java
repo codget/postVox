@@ -9,8 +9,8 @@ public class Speech{
 
 	//vars
 	public Intent intent;
-	public int requestCode = 1234;
-	public String result;
+	public int requestCode = 285831614;
+	public String result = "";
 
 
 	public Speech(){
@@ -26,8 +26,6 @@ public class Speech{
 
             result = results.get(0);
 		}
-
-		intent.putExtra("name", "Speech");
 		
 		return result;
 	}

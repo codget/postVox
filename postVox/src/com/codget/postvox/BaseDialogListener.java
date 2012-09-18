@@ -1,8 +1,8 @@
 package com.codget.postvox;
 
 import com.facebook.android.DialogError;
-import com.facebook.android.FacebookError;
 import com.facebook.android.Facebook.DialogListener;
+import com.facebook.android.FacebookError;
 
 /**
  * Skeleton base class for RequestListeners, providing default error 

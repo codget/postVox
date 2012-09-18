@@ -1,40 +1,35 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp"
-    tools:context=".PostActivity">
+    android:id="@+id/content"
+    style="@style/contentStyle"
+    tools:context=".PostActivity" >
 
-	<Button
-	    android:id="@+id/speechButton"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentTop="true"
-	    android:layout_centerHorizontal="true"
-	    android:onClick="speechButtonClick"
-	    android:text="@string/speechButton"/>
+    <ImageView
+        android:id="@+id/logoImage"
+        style="@style/logoStyle"
+        android:contentDescription="@string/postvox" />
 
-	<EditText
-	    android:id="@+id/speechResult"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_below="@+id/speechButton"
-	    android:layout_centerHorizontal="true"
-	    android:layout_marginTop="10dp"
-	    android:inputType="textMultiLine">
-	    <requestFocus />
-	</EditText>
+    <Button
+        android:id="@+id/speechButton"
+        style="@style/speechButtonStyle"/>
 
-	<Button
-	    android:id="@+id/postButton"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentBottom="true"
-	    android:layout_centerHorizontal="true"
-	    android:layout_margin="20dp"
-	    android:onClick="facebookPostClick"
-	    android:paddingLeft="20dp"
-	    android:paddingRight="20dp"
-	    android:text="@string/facebookPostButton" />
+    <Button
+        android:id="@+id/postButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="facebookPostClick"
+        android:text="@string/facebookPostButton" />
+
+    <EditText
+        android:id="@+id/speechResult"
+        style="@style/speechResultStyle"
+        android:layout_alignRight="@+id/speechButton"
+        android:layout_below="@+id/speechButton"
+        android:gravity="center_vertical|top"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>
