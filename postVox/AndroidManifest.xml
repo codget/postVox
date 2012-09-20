@@ -17,14 +17,22 @@
         android:label="@string/postvox"
         android:screenOrientation="portrait">
 
+        <activity android:name="Splash" android:label="@string/postvox">
+      	  <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+        </activity>
+        
         <activity
             android:name=".PostActivity"
             android:label="@string/postvox">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        
+            
     </application>
 </manifest>
