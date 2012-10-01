@@ -11,20 +11,29 @@
 	<uses-permission android:name="android.permission.RECORD_AUDIO"/>
 	<uses-permission android:name="android.permission.VOICE_RECOGNITION"/>
 	<uses-permission android:name="android.permission.MIC"/>
-
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	
     <application
         android:icon="@drawable/icon"
         android:label="@string/postvox"
         android:screenOrientation="portrait">
 
+        <activity android:name="Splash" android:label="@string/postvox">
+      	  <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+        </activity>
+        
         <activity
             android:name=".PostActivity"
             android:label="@string/postvox">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        
+            
     </application>
 </manifest>

@@ -4,12 +4,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-import com.codget.postvox.R;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class PostActivity extends Activity{
@@ -17,21 +20,38 @@ public class PostActivity extends Activity{
 	//vars
 	public Speech speech = new Speech();
 	public EditText speechResult;
+	public Button speechButton;
 
 	public FB facebook = new FB();
-
-
+	public Button postButton;
 
 	//cria a tela
 	@Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.postactivity);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         speechResult = (EditText) findViewById(R.id.speechResult);
+        speechButton = (Button) findViewById(R.id.speechButton);
+        postButton = (Button) findViewById(R.id.postButton);
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        if(!isNetworkAvailable()){
+        	speechButton.setVisibility(View.INVISIBLE);
+            postButton.setVisibility(View.INVISIBLE);
+        }
 	}
+
+	//verifica se existe conexão com a internet
+    public boolean isNetworkAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        if(cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isAvailable() && cm.getActiveNetworkInfo().isConnected()) {
+        	return true;
+        }else{
+        	return false;
+        }
+    }
 
 	//bind no botao do facebook
     public boolean facebookPostClick(View v) throws FileNotFoundException, MalformedURLException, IOException{

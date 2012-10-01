@@ -20,14 +20,14 @@ public final class R {
     }
     public static final class id {
         public static final int content=0x7f070000;
-        public static final int logoImage=0x7f070001;
-        public static final int menu_settings=0x7f070005;
-        public static final int postButton=0x7f070003;
-        public static final int speechButton=0x7f070002;
-        public static final int speechResult=0x7f070004;
+        public static final int menu_settings=0x7f070004;
+        public static final int postButton=0x7f070002;
+        public static final int speechButton=0x7f070001;
+        public static final int speechResult=0x7f070003;
     }
     public static final class layout {
         public static final int postactivity=0x7f030000;
+        public static final int splash=0x7f030001;
     }
     public static final class menu {
         public static final int postactivity=0x7f060000;
@@ -42,14 +42,11 @@ public final class R {
         /**  estilo do content, relative 
          */
         public static final int contentStyle=0x7f050000;
-        /**   estilo do logo 
-         */
-        public static final int logoStyle=0x7f050001;
         /**   estilo do speech button 
          */
-        public static final int speechButtonStyle=0x7f050002;
+        public static final int speechButtonStyle=0x7f050001;
         /**   estilo do speech result 
          */
-        public static final int speechResultStyle=0x7f050003;
+        public static final int speechResultStyle=0x7f050002;
     }
 }

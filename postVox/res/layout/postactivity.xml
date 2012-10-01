@@ -3,12 +3,7 @@
     android:id="@+id/content"
     style="@style/contentStyle"
     tools:context=".PostActivity" >
-
-    <ImageView
-        android:id="@+id/logoImage"
-        style="@style/logoStyle"
-        android:contentDescription="@string/postvox" />
-
+
     <Button
         android:id="@+id/speechButton"
         style="@style/speechButtonStyle"/>

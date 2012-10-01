@@ -20,13 +20,10 @@ public class FB extends Facebook{
 	public static String appId = "285831614858736";
 	public String[] permissions = new String[] {"publish_stream", "read_stream"};
 
-
     //construtor da classe
 	public FB(){
 		super(appId);
 	}
-
-
 
 	//pega a sessao, se nao esta logado, cria
 	public boolean getSession(PostActivity context){
