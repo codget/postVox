@@ -27,4 +27,14 @@
         <requestFocus />
     </EditText>
 
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/postButton"
+        android:layout_alignBottom="@+id/postButton"
+        android:layout_alignRight="@+id/speechResult"
+        android:onClick="clearText"
+        android:text="@string/clearText" />
+
 </RelativeLayout>

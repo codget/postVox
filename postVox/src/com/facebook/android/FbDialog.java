@@ -22,8 +22,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
@@ -34,6 +36,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.codget.postvox.R;
 import com.facebook.android.Facebook.DialogListener;
 
 public class FbDialog extends Dialog {
@@ -95,18 +98,17 @@ public class FbDialog extends Dialog {
         mCrossImage = new ImageView(getContext());
         // Dismiss the dialog when user click on the 'x'
         mCrossImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
             public void onClick(View v) {
                 mListener.onCancel();
                 FbDialog.this.dismiss();
             }
         });
-//        Drawable crossDrawable = getContext().getResources().getDrawable(R.drawable.close);
-//        mCrossImage.setImageDrawable(crossDrawable);
+        Drawable crossDrawable = getContext().getResources().getDrawable(R.drawable.close);
+        mCrossImage.setImageDrawable(crossDrawable);
         /* 'x' should not be visible while webview is loading
          * make it visible only after webview has fully loaded
         */
-//        mCrossImage.setVisibility(View.INVISIBLE);
+        mCrossImage.setVisibility(View.INVISIBLE);
     }
 
     private void setUpWebView(int margin) {
@@ -115,10 +117,10 @@ public class FbDialog extends Dialog {
         mWebView.setVerticalScrollBarEnabled(false);
         mWebView.setHorizontalScrollBarEnabled(false);
         mWebView.setWebViewClient(new FbDialog.FbWebViewClient());
+        mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.loadUrl(mUrl);
         mWebView.setLayoutParams(FILL);
         mWebView.setVisibility(View.INVISIBLE);
-        mWebView.getSettings().setSavePassword(false);
         
         webViewContainer.setPadding(margin, margin, margin, margin);
         webViewContainer.addView(mWebView);

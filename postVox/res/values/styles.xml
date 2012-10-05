@@ -18,14 +18,12 @@
         <item name="android:layout_alignParentTop">true</item>
         <item name="android:layout_alignTop">@+id/logoImage</item>
         <item name="android:gravity">center_vertical|center_horizontal</item>
-        <item name="android:background">@drawable/splash</item>
+        <item name="android:background">@drawable/speechbutton</item>
         <item name="android:textStyle">bold</item>
         <item name="android:onClick">speechButtonClick</item>
         <item name="android:padding">10dp</item>
         <item name="android:text">@string/speechButton</item>
-		<item name="android:background">@drawable/speechbutton</item>
         <item name="android:textColor">#ffffff</item>
-        <item name="android:textSize">16</item>
     </style>
 
     <!--  estilo do speech result -->

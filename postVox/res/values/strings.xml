@@ -7,5 +7,7 @@
     <string name="menu_settings">Settings</string>
 
     <string name="facebookPostButton">Postar no Facebook</string>
+    
+    <string name="clearText">Limpar Texto</string>
 
 </resources>

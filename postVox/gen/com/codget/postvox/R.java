@@ -11,16 +11,18 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int icon=0x7f020000;
-        public static final int login=0x7f020001;
-        public static final int login_button=0x7f020002;
-        public static final int login_down=0x7f020003;
-        public static final int speechbutton=0x7f020004;
-        public static final int splash=0x7f020005;
+        public static final int close=0x7f020000;
+        public static final int icon=0x7f020001;
+        public static final int login=0x7f020002;
+        public static final int login_button=0x7f020003;
+        public static final int login_down=0x7f020004;
+        public static final int speechbutton=0x7f020005;
+        public static final int splash=0x7f020006;
     }
     public static final class id {
+        public static final int clearButton=0x7f070004;
         public static final int content=0x7f070000;
-        public static final int menu_settings=0x7f070004;
+        public static final int menu_settings=0x7f070005;
         public static final int postButton=0x7f070002;
         public static final int speechButton=0x7f070001;
         public static final int speechResult=0x7f070003;
@@ -33,6 +35,7 @@ public final class R {
         public static final int postactivity=0x7f060000;
     }
     public static final class string {
+        public static final int clearText=0x7f040004;
         public static final int facebookPostButton=0x7f040003;
         public static final int menu_settings=0x7f040002;
         public static final int postvox=0x7f040000;
