@@ -9,5 +9,7 @@
     <string name="facebookPostButton">Postar no Facebook</string>
     
     <string name="clearText">Limpar Texto</string>
+    
+    <string name="faceButton">Veja o Facebook</string>
 
 </resources>

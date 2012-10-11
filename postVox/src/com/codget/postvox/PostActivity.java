@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,22 +41,7 @@ public class PostActivity extends Activity{
         speechButton = (Button) findViewById(R.id.speechButton);
         postButton = (Button) findViewById(R.id.postButton);
 
-        if(!isNetworkAvailable()){
-        	speechButton.setVisibility(View.INVISIBLE);
-            postButton.setVisibility(View.INVISIBLE);
-        }
 	}
-
-	//verifica se existe conex�o com a internet
-    public boolean isNetworkAvailable() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        if(cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isAvailable() && cm.getActiveNetworkInfo().isConnected()) {
-        	return true;
-        }else{
-        	return false;
-        }
-    }
 
 	//bind no botao do facebook
     public void facebookPostClick(View v) {
@@ -67,10 +53,17 @@ public class PostActivity extends Activity{
   //bind no botao do clear text
     public void clearText(View v) {
     	String textWall = speechResult.getText().toString();
-    	 if(textWall.length() > 0){
-    		 speechResult.setText("");
-    	 }
+    	if(textWall.length() > 0){
+    		speechResult.setText("");
+    		speech = new Speech();
+    	}
         
+    }
+    
+    public void goToFace(View v){
+    	String uri = "facebook://facebook.com/wall";
+    	Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+    	startActivity(intent);
     }
     
     public void postWall() throws FileNotFoundException, MalformedURLException, IOException{
@@ -106,6 +99,7 @@ public class PostActivity extends Activity{
     	//callback do speechButton
     	String _result = speech.setResult(requestCode, resultCode, RESULT_OK,  intent);
     	speechResultUpdate(_result);
+    	
     }
     
     public AlertDialog createAlert(String title, String message){

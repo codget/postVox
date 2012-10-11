@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.facebook.android.DialogError;
 import com.facebook.android.Facebook;
@@ -40,7 +39,6 @@ public class FB extends Facebook{
     		setSession(context);
     		
     	} 
-
     	
 	}
 
@@ -48,17 +46,16 @@ public class FB extends Facebook{
 	    this.authorizeCallback(requestCode, resultCode, data);
 	    contextLogin.onActivityResult(requestCode, resultCode, data);
 	}
+	
 	//seta uma sessao para o usuario
     public void setSession(PostActivity context){
-    	
-    	
+  
     	this.authorize(context, permissions, Facebook.FORCE_DIALOG_AUTH, new LoginDialogListener());
    
     }
 
 	class LoginDialogListener implements DialogListener{
 		
-
 		public void onComplete(Bundle values) {
 			
 			saveCredentials(contextLogin);
@@ -78,14 +75,12 @@ public class FB extends Facebook{
 		}
 
 		public void onFacebookError(FacebookError e) {
-			// TODO Auto-generated method stub
 			AlertDialog dialog = contextLogin.createAlert("Facebook", "Ocorreu um erro ao se conectar ao Facebook, tente mais tarde!");
 			dialog.show();
 			
 		}
 
 		public void onError(DialogError e) {
-			// TODO Auto-generated method stub
 			AlertDialog dialog = contextLogin.createAlert("Facebook", "Ocorreu um erro ao se conectar ao Facebook, tente mais tarde!");
 			dialog.show();
 			
