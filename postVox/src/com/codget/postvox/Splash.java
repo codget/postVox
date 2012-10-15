@@ -18,7 +18,7 @@ public class Splash extends Activity implements Runnable {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash);
 		if(!isNetworkAvailable()){
-        	AlertDialog dialog = createAlertFinish("Conex√£o", "Para o uso da aplica√ß√£o, √© necess√°rio estar conectado √† internet.");
+        	AlertDialog dialog = createAlertFinish("Conex„o", "Para o uso da aplicaÁ„o, È necess·rio estar conectado ‡ internet.");
 			dialog.show();
         } else {
         	Handler handler = new Handler();

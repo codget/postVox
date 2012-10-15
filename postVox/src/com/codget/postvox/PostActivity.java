@@ -40,14 +40,11 @@ public class PostActivity extends Activity{
         speechResult = (EditText) findViewById(R.id.speechResult);
         speechButton = (Button) findViewById(R.id.speechButton);
         postButton = (Button) findViewById(R.id.postButton);
-
 	}
 
 	//bind no botao do facebook
     public void facebookPostClick(View v) {
-    	
         facebook.getSession(this);
-        
     }
     
   //bind no botao do clear text
@@ -56,8 +53,7 @@ public class PostActivity extends Activity{
     	if(textWall.length() > 0){
     		speechResult.setText("");
     		speech = new Speech();
-    	}
-        
+    	}        
     }
     
     public void goToFace(View v){
@@ -65,18 +61,18 @@ public class PostActivity extends Activity{
     	Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
     	startActivity(intent);
     }
-    
+
     public void postWall() throws FileNotFoundException, MalformedURLException, IOException{
     	String textWall = speechResult.getText().toString();
-    	AlertDialog dialog =  createAlert("Texto vazio", "Favor inserir um texto.");
+    	AlertDialog dialog = createAlert("Texto vazio", "Favor inserir um texto.");
     	 if(textWall.length() == 0){ 
     		 dialog.show();
+
          } else {
         	 facebook.facebookPost(textWall);
         	 speechResult.setText("");
          }
          
-     	
     }
 
     //bind no click botao de speak
