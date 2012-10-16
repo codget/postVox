@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -57,9 +58,16 @@ public class PostActivity extends Activity{
     }
     
     public void goToFace(View v){
-    	String uri = "facebook://facebook.com/wall";
-    	Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-    	startActivity(intent);
+    	try {
+    		String uri = "facebook://facebook.com/wall";
+        	Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+    		startActivity(intent);
+    	} catch (ActivityNotFoundException e) {
+    		Uri url = Uri.parse("http://m.facebook.com");
+    		Intent intentl = new Intent(Intent.ACTION_VIEW, url);
+    		startActivity(intentl);
+    	}
+    	
     }
 
     public void postWall() throws FileNotFoundException, MalformedURLException, IOException{
