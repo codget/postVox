@@ -7,13 +7,10 @@
 		<item name="android:layout_width">match_parent</item>
 		<item name="android:layout_height">match_parent</item>
 		<item name="android:padding">10dp</item>
-		<item name="android:gravity">top</item>
     </style>
 
     <!--  estilo do speech button -->
     <style name="speechButtonStyle">
-        <item name="android:layout_alignParentRight">true</item>
-        <item name="android:layout_alignParentTop">true</item>
         <item name="android:background">@drawable/speechbutton</item>
         <item name="android:onClick">speechButtonClick</item>
     </style>

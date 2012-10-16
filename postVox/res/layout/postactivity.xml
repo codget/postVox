@@ -2,51 +2,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content"
     style="@style/contentStyle"
+    android:layout_width="match_parent"
     android:background="@drawable/background"
     tools:context=".PostActivity" >
 
-    <EditText
-        android:id="@+id/speechResult"
-        style="@style/speechResultStyle"
-        android:layout_alignBottom="@+id/speechButton"
-        android:layout_alignLeft="@+id/postButton"
-        android:layout_alignTop="@+id/speechButton"
-        android:layout_toLeftOf="@+id/speechButton"
-        android:gravity="center_vertical|top"
-        android:inputType="textMultiLine" />
-    
     <Button
         android:id="@+id/speechButton"
         style="@style/speechButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/speechbutton" />
-
-    <Button
-        android:id="@+id/postButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:onClick="facebookPostClick"
-        android:text="@string/facebookPostButton" />
+
+    <EditText
+        android:id="@+id/speechResult"
+        style="@style/speechResultStyle"
+        android:layout_below="@+id/speechButton"
+        android:gravity="center_vertical|top"
+        android:inputType="textMultiLine"
+        android:minHeight="150dp" />
 
     <Button
         android:id="@+id/clearButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/speechResult"
+        android:layout_alignBaseline="@+id/speechButton"
+        android:layout_alignBottom="@+id/speechButton"
+        android:layout_alignRight="@+id/speechResult"
         android:background="@drawable/clearbutton"
-        android:onClick="clearText"/>
+        android:onClick="clearText" />
 
     <Button
         android:id="@+id/faceButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/postButton"
-        android:layout_alignBottom="@+id/postButton"
-        android:layout_alignRight="@+id/speechButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/speechResult"
+        android:background="@drawable/seebutton"
         android:onClick="goToFace"
-        android:text="@string/faceButton" />
-
+        android:text="@string/faceButton"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light" />
+
+    <Button
+        android:id="@+id/postButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/faceButton"
+        android:layout_alignLeft="@+id/speechResult"
+        android:background="@drawable/postbutton"
+        android:onClick="facebookPostClick"
+        android:padding="10dp"
+        android:text="@string/facebookPostButton" />
+    
 </RelativeLayout>
