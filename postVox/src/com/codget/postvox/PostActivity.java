@@ -3,22 +3,23 @@ package com.codget.postvox;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class PostActivity extends Activity{
 
@@ -29,6 +30,11 @@ public class PostActivity extends Activity{
 
 	public FB facebook;
 	public Button postButton;
+	
+	private TextView textViewWords;
+	private Context mContext;
+
+
 
 	//cria a tela
 	@Override
@@ -41,6 +47,10 @@ public class PostActivity extends Activity{
         speechResult = (EditText) findViewById(R.id.speechResult);
         speechButton = (Button) findViewById(R.id.speechButton);
         postButton = (Button) findViewById(R.id.postButton);
+        
+        textViewWords = (TextView) findViewById(R.id.textViewPalavras);
+        mContext = this;
+
 	}
 
 	//bind no botao do facebook
@@ -80,6 +90,7 @@ public class PostActivity extends Activity{
         	 facebook.facebookPost(textWall);
         	 speechResult.setText("");
          }
+
          
     }
 
@@ -89,8 +100,13 @@ public class PostActivity extends Activity{
     }
 
     //bind no update do multiline speech
-    public void speechResultUpdate(String _result){
-    	speechResult.setText(_result);
+    public void speechResultUpdate(String[] resultsDialog){
+    	//speechResult.setText(_result);
+    	
+		if (resultsDialog != null) {
+			Dialog dialog = DialogSugestoes("Sugestões",resultsDialog);
+			dialog.show();
+		}
     }
 
 
@@ -101,8 +117,8 @@ public class PostActivity extends Activity{
     	super.onActivityResult(requestCode, resultCode, intent);
 
     	//callback do speechButton
-    	String _result = speech.setResult(requestCode, resultCode, RESULT_OK,  intent);
-    	speechResultUpdate(_result);
+    	String[] resultsDialog = speech.setResult(requestCode, resultCode, RESULT_OK,  intent);
+    	speechResultUpdate(resultsDialog);
     	
     }
     
@@ -121,5 +137,17 @@ public class PostActivity extends Activity{
     	AlertDialog dialog = builder.create();
     	return dialog;
     }
-
+    
+    
+    public Dialog DialogSugestoes(String title, final String[] resultsDialog) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setItems(resultsDialog, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int which) {
+                	speechResult.setText(resultsDialog[which].toString());
+               }
+        });
+        return builder.create();
+    }
+  
 }
