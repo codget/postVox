@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -101,7 +102,7 @@ public class PostActivity extends Activity{
     	//speechResult.setText(_result);
     	
 		if (resultsDialog != null) {
-			Dialog dialog = DialogSugestoes("Sugestões",resultsDialog);
+			Dialog dialog = DialogSugestoes("Sugestï¿½es",resultsDialog);
 			dialog.show();
 		}
     }
@@ -141,7 +142,14 @@ public class PostActivity extends Activity{
         builder.setTitle(title);
         builder.setItems(resultsDialog, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int which) {
-                	speechResult.setText(resultsDialog[which].toString());
+                	   String textResult = "";
+                	   if(speechResult.getText().length() > 0){
+                		   textResult = speechResult.getText().toString() + " " + resultsDialog[which].toString();
+                	   } else {
+                		   textResult = resultsDialog[which].toString();
+                	   }
+                   	   textResult = textResult.substring(0,1).toUpperCase() + textResult.substring(1);  
+                   	   speechResult.setText(textResult);
                }
         });
         return builder.create();
