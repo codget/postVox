@@ -31,7 +31,6 @@ public class PostActivity extends Activity{
 	public FB facebook;
 	public Button postButton;
 	
-	private TextView textViewWords;
 	private Context mContext;
 
 
@@ -47,8 +46,6 @@ public class PostActivity extends Activity{
         speechResult = (EditText) findViewById(R.id.speechResult);
         speechButton = (Button) findViewById(R.id.speechButton);
         postButton = (Button) findViewById(R.id.postButton);
-        
-        textViewWords = (TextView) findViewById(R.id.textViewPalavras);
         mContext = this;
 
 	}
