@@ -12,10 +12,10 @@ public class Speech{
 	public int requestCode = 285831614;
 	
 	// Lista que recebe os resultados do RecognizerIntent.EXTRA_RESULTS
-	ArrayList<String> results = new ArrayList<String>();
+	public ArrayList<String> results = new ArrayList<String>();
 	
 	// Array usado como parâmetro parao Dialog de sugestões
-    String[] resultsDialog = null;
+    public String[] resultsDialog = null;
 
 
 	public Speech(){

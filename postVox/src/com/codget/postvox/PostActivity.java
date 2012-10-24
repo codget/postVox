@@ -62,7 +62,7 @@ public class PostActivity extends Activity{
     	if(textWall.length() > 0){
     		speechResult.setText("");
     		speech = new Speech();
-    	}        
+    	}
     }
     
     public void goToFace(View v){
@@ -102,7 +102,7 @@ public class PostActivity extends Activity{
     	//speechResult.setText(_result);
     	
 		if (resultsDialog != null) {
-			Dialog dialog = DialogSugestoes("Sugestï¿½es",resultsDialog);
+			Dialog dialog = DialogSugestoes("Sugestões",resultsDialog);
 			dialog.show();
 		}
     }
@@ -148,8 +148,12 @@ public class PostActivity extends Activity{
                 	   } else {
                 		   textResult = resultsDialog[which].toString();
                 	   }
+                	   
                    	   textResult = textResult.substring(0,1).toUpperCase() + textResult.substring(1);  
                    	   speechResult.setText(textResult);
+                   	   
+                	   speech.results.clear();
+                	   speech.resultsDialog = null;
                }
         });
         return builder.create();
